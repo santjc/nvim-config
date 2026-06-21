@@ -128,22 +128,22 @@ require("lazy").setup({
           return "<ignore>"
         end, "Previous git change", { expr = true })
 
-        map("n", "<leader>hp", gitsigns.preview_hunk, "Preview hunk")
-        map("n", "<leader>hs", gitsigns.stage_hunk, "Stage hunk")
-        map("n", "<leader>hr", gitsigns.reset_hunk, "Reset hunk")
-        map("v", "<leader>hs", function()
+        map("n", "<leader>gp", gitsigns.preview_hunk, "Preview hunk")
+        map("n", "<leader>gs", gitsigns.stage_hunk, "Stage hunk")
+        map("n", "<leader>gr", gitsigns.reset_hunk, "Reset hunk")
+        map("v", "<leader>gs", function()
           gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
         end, "Stage selected hunk")
-        map("v", "<leader>hr", function()
+        map("v", "<leader>gr", function()
           gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
         end, "Reset selected hunk")
-        map("n", "<leader>hS", gitsigns.stage_buffer, "Stage buffer")
-        map("n", "<leader>hu", gitsigns.undo_stage_hunk, "Undo stage hunk")
-        map("n", "<leader>hR", gitsigns.reset_buffer, "Reset buffer")
-        map("n", "<leader>hb", function()
+        map("n", "<leader>gS", gitsigns.stage_buffer, "Stage buffer")
+        map("n", "<leader>gu", gitsigns.undo_stage_hunk, "Undo stage hunk")
+        map("n", "<leader>gR", gitsigns.reset_buffer, "Reset buffer")
+        map("n", "<leader>gb", function()
           gitsigns.blame_line({ full = true })
         end, "Blame line")
-        map("n", "<leader>hD", gitsigns.diffthis, "Inline diff file")
+        map("n", "<leader>gD", gitsigns.diffthis, "Inline diff current file")
       end,
     },
   },
@@ -161,11 +161,12 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
     },
     keys = {
-      { "<leader>hd", "<cmd>DiffviewOpen<cr>", desc = "Open visual diff" },
-      { "<leader>hc", "<cmd>DiffviewClose<cr>", desc = "Close visual diff" },
-      { "<leader>hf", "<cmd>DiffviewToggleFiles<cr>", desc = "Toggle diff files" },
-      { "<leader>hh", "<cmd>DiffviewFileHistory %<cr>", desc = "Current file history" },
-      { "<leader>hH", "<cmd>DiffviewFileHistory<cr>", desc = "Repo file history" },
+      { "<leader>gg", "<cmd>DiffviewOpen<cr>", desc = "Open repo diff" },
+      { "<leader>gf", "<cmd>DiffviewOpen -- %<cr>", desc = "Open current file diff" },
+      { "<leader>gc", "<cmd>DiffviewClose<cr>", desc = "Close diff" },
+      { "<leader>gt", "<cmd>DiffviewToggleFiles<cr>", desc = "Toggle changed files panel" },
+      { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "Current file history" },
+      { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "Repo file history" },
     },
     opts = {
       enhanced_diff_hl = true,

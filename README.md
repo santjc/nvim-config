@@ -78,16 +78,20 @@ Leader key is `Space`.
 | `gd` | Go to definition |
 | `K` | Hover documentation |
 | `]c` / `[c` | Next / previous Git change |
-| `Space hp` | Preview Git hunk |
-| `Space hs` | Stage Git hunk |
-| `Space hr` | Reset Git hunk |
-| `Space hb` | Blame current line |
-| `Space hd` | Open side-by-side diff |
-| `Space hc` | Close side-by-side diff |
-| `Space hf` | Toggle changed files panel |
-| `Space hh` | Current file history |
-| `Space hH` | Repository file history |
-| `Space hD` | Inline diff current file |
+| `Space gg` | Open side-by-side repo diff |
+| `Space gf` | Open side-by-side diff for current file |
+| `Space gc` | Close diff view |
+| `Space gt` | Toggle changed files panel |
+| `Space gh` | Current file history |
+| `Space gH` | Repository file history |
+| `Space gp` | Preview Git hunk |
+| `Space gs` | Stage Git hunk |
+| `Space gr` | Reset Git hunk |
+| `Space gS` | Stage current buffer |
+| `Space gu` | Undo stage hunk |
+| `Space gR` | Reset current buffer |
+| `Space gb` | Blame current line |
+| `Space gD` | Inline diff current file |
 
 ## Notes
 
