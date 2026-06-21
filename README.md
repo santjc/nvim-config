@@ -33,6 +33,7 @@ The install script installs:
 - `lazy.nvim`: plugin manager.
 - `vscode.nvim`: minimal VS Code-like colorscheme.
 - `nvim-treesitter`: better syntax highlighting and indentation.
+- `gitsigns.nvim`: inline Git change markers and hunk actions.
 - `neo-tree.nvim`: file explorer sidebar.
 - `telescope.nvim`: fuzzy finder and live grep.
 - `ripgrep`: backend used by Telescope live grep.
@@ -71,6 +72,12 @@ Leader key is `Space`.
 | `Space ca` | Code action |
 | `gd` | Go to definition |
 | `K` | Hover documentation |
+| `]c` / `[c` | Next / previous Git change |
+| `Space hp` | Preview Git hunk |
+| `Space hs` | Stage Git hunk |
+| `Space hr` | Reset Git hunk |
+| `Space hb` | Blame current line |
+| `Space hd` | Diff current file |
 
 ## Notes
 

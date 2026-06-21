@@ -75,6 +75,61 @@ require("lazy").setup({
     end,
   },
   {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "-" },
+        changedelete = { text = "~" },
+      },
+      on_attach = function(bufnr)
+        local gitsigns = require("gitsigns")
+        local map = function(mode, lhs, rhs, desc, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          opts.desc = desc
+          vim.keymap.set(mode, lhs, rhs, opts)
+        end
+
+        map("n", "]c", function()
+          if vim.wo.diff then
+            return "]c"
+          end
+          vim.schedule(gitsigns.next_hunk)
+          return "<ignore>"
+        end, "Next git change", { expr = true })
+
+        map("n", "[c", function()
+          if vim.wo.diff then
+            return "[c"
+          end
+          vim.schedule(gitsigns.prev_hunk)
+          return "<ignore>"
+        end, "Previous git change", { expr = true })
+
+        map("n", "<leader>hp", gitsigns.preview_hunk, "Preview hunk")
+        map("n", "<leader>hs", gitsigns.stage_hunk, "Stage hunk")
+        map("n", "<leader>hr", gitsigns.reset_hunk, "Reset hunk")
+        map("v", "<leader>hs", function()
+          gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        end, "Stage selected hunk")
+        map("v", "<leader>hr", function()
+          gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        end, "Reset selected hunk")
+        map("n", "<leader>hS", gitsigns.stage_buffer, "Stage buffer")
+        map("n", "<leader>hu", gitsigns.undo_stage_hunk, "Undo stage hunk")
+        map("n", "<leader>hR", gitsigns.reset_buffer, "Reset buffer")
+        map("n", "<leader>hb", function()
+          gitsigns.blame_line({ full = true })
+        end, "Blame line")
+        map("n", "<leader>hd", gitsigns.diffthis, "Diff file")
+      end,
+    },
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     cmd = "Neotree",
