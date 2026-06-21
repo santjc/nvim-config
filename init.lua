@@ -13,7 +13,14 @@ vim.opt.splitbelow = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.copyindent = true
+vim.opt.preserveindent = true
+vim.opt.shiftround = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+vim.cmd("filetype plugin indent on")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -67,7 +74,7 @@ require("lazy").setup({
         enable = true,
       },
       indent = {
-        enable = true,
+        enable = false,
       },
     },
     config = function(_, opts)

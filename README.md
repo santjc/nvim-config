@@ -1,6 +1,6 @@
 # Neovim Config
 
-Small Neovim setup focused on file navigation, fuzzy search, TypeScript linting, autocomplete, auto-pairs, HTML/JSX auto-tags, formatting, and minimal VS Code-like highlighting.
+Small Neovim setup focused on file navigation, fuzzy search, TypeScript linting, autocomplete, auto-pairs, smart indentation, HTML/JSX auto-tags, formatting, and minimal VS Code-like highlighting.
 
 ## Install
 
@@ -94,3 +94,5 @@ Leader key is `Space`.
 ESLint diagnostics require the project to have ESLint configured and dependencies installed.
 
 Formatting runs on save for supported web files. You can also format manually with `Space f`.
+
+New lines keep the current code indentation and use filetype-specific indentation rules when available.
