@@ -1,6 +1,6 @@
 # Neovim Config
 
-Small Neovim setup focused on file navigation, fuzzy search, TypeScript linting, autocomplete, and auto-pairs.
+Small Neovim setup focused on file navigation, fuzzy search, TypeScript linting, autocomplete, auto-pairs, and minimal VS Code-like highlighting.
 
 ## Install
 
@@ -31,6 +31,8 @@ The install script installs:
 ## Tools
 
 - `lazy.nvim`: plugin manager.
+- `vscode.nvim`: minimal VS Code-like colorscheme.
+- `nvim-treesitter`: better syntax highlighting and indentation.
 - `neo-tree.nvim`: file explorer sidebar.
 - `telescope.nvim`: fuzzy finder and live grep.
 - `ripgrep`: backend used by Telescope live grep.

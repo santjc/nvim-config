@@ -30,6 +30,51 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
+    "Mofiqul/vscode.nvim",
+    priority = 1000,
+    config = function()
+      require("vscode").setup({
+        transparent = false,
+        italic_comments = false,
+        underline_links = true,
+        disable_nvimtree_bg = true,
+      })
+
+      vim.cmd.colorscheme("vscode")
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    build = ":TSUpdate",
+    cmd = { "TSInstall", "TSInstallSync", "TSUpdate", "TSUpdateSync" },
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      ensure_installed = {
+        "bash",
+        "css",
+        "html",
+        "javascript",
+        "json",
+        "lua",
+        "markdown",
+        "tsx",
+        "typescript",
+        "vim",
+        "yaml",
+      },
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     cmd = "Neotree",
