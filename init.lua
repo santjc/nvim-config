@@ -75,6 +75,17 @@ require("lazy").setup({
     end,
   },
   {
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = true,
+      },
+    },
+  },
+  {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
@@ -302,6 +313,50 @@ require("lazy").setup({
     end,
   },
   {
+    "stevearc/conform.nvim",
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        "<leader>f",
+        function()
+          require("conform").format({ async = true, lsp_fallback = true })
+        end,
+        desc = "Format file",
+      },
+    },
+    opts = {
+      formatters_by_ft = {
+        css = { "prettier" },
+        graphql = { "prettier" },
+        html = { "prettier" },
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        json = { "prettier" },
+        jsonc = { "prettier" },
+        markdown = { "prettier" },
+        scss = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        yaml = { "prettier" },
+      },
+      format_on_save = function(bufnr)
+        local disabled_filetypes = {
+          c = true,
+          cpp = true,
+        }
+
+        if disabled_filetypes[vim.bo[bufnr].filetype] then
+          return nil
+        end
+
+        return {
+          timeout_ms = 1000,
+          lsp_fallback = true,
+        }
+      end,
+    },
+  },
+  {
     "williamboman/mason.nvim",
     cmd = "Mason",
     opts = {},
@@ -322,6 +377,7 @@ require("lazy").setup({
       ensure_installed = {
         "typescript-language-server",
         "eslint-lsp",
+        "prettier",
       },
     },
   },

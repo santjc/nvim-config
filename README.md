@@ -1,6 +1,6 @@
 # Neovim Config
 
-Small Neovim setup focused on file navigation, fuzzy search, TypeScript linting, autocomplete, auto-pairs, and minimal VS Code-like highlighting.
+Small Neovim setup focused on file navigation, fuzzy search, TypeScript linting, autocomplete, auto-pairs, HTML/JSX auto-tags, formatting, and minimal VS Code-like highlighting.
 
 ## Install
 
@@ -33,6 +33,7 @@ The install script installs:
 - `lazy.nvim`: plugin manager.
 - `vscode.nvim`: minimal VS Code-like colorscheme.
 - `nvim-treesitter`: better syntax highlighting and indentation.
+- `nvim-ts-autotag`: auto-closes and renames HTML/JSX tags.
 - `gitsigns.nvim`: inline Git change markers and hunk actions.
 - `diffview.nvim`: side-by-side Git diff view.
 - `neo-tree.nvim`: file explorer sidebar.
@@ -41,11 +42,13 @@ The install script installs:
 - `nvim-cmp`: autocomplete menu.
 - `LuaSnip`: snippet expansion support for completion.
 - `nvim-autopairs`: auto-closes pairs like `{}`, `[]`, `()`, and quotes.
+- `conform.nvim`: code formatting integration.
 - `nvim-lspconfig`: Neovim LSP setup.
 - `mason.nvim`: installs LSP tools.
 - `mason-tool-installer.nvim`: installs required Mason tools automatically.
 - `typescript-language-server`: TypeScript language server.
 - `eslint-lsp`: ESLint language server.
+- `prettier`: formatter for web files.
 
 ## Keymaps
 
@@ -61,6 +64,7 @@ Leader key is `Space`.
 | `Space fg` | Search text in project |
 | `Space fb` | Find open buffers |
 | `Space fr` | Recent files |
+| `Space f` | Format current file |
 | `Space tn` | New tab |
 | `Space tc` | Close tab |
 | `Tab` | Next tab |
@@ -88,3 +92,5 @@ Leader key is `Space`.
 ## Notes
 
 ESLint diagnostics require the project to have ESLint configured and dependencies installed.
+
+Formatting runs on save for supported web files. You can also format manually with `Space f`.
