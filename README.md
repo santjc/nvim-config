@@ -34,6 +34,7 @@ The install script installs:
 - `vscode.nvim`: minimal VS Code-like colorscheme.
 - `nvim-treesitter`: better syntax highlighting and indentation.
 - `gitsigns.nvim`: inline Git change markers and hunk actions.
+- `diffview.nvim`: side-by-side Git diff view.
 - `neo-tree.nvim`: file explorer sidebar.
 - `telescope.nvim`: fuzzy finder and live grep.
 - `ripgrep`: backend used by Telescope live grep.
@@ -77,7 +78,12 @@ Leader key is `Space`.
 | `Space hs` | Stage Git hunk |
 | `Space hr` | Reset Git hunk |
 | `Space hb` | Blame current line |
-| `Space hd` | Diff current file |
+| `Space hd` | Open side-by-side diff |
+| `Space hc` | Close side-by-side diff |
+| `Space hf` | Toggle changed files panel |
+| `Space hh` | Current file history |
+| `Space hH` | Repository file history |
+| `Space hD` | Inline diff current file |
 
 ## Notes
 

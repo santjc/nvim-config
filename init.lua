@@ -125,8 +125,50 @@ require("lazy").setup({
         map("n", "<leader>hb", function()
           gitsigns.blame_line({ full = true })
         end, "Blame line")
-        map("n", "<leader>hd", gitsigns.diffthis, "Diff file")
+        map("n", "<leader>hD", gitsigns.diffthis, "Inline diff file")
       end,
+    },
+  },
+  {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewClose",
+      "DiffviewFileHistory",
+      "DiffviewFocusFiles",
+      "DiffviewToggleFiles",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      { "<leader>hd", "<cmd>DiffviewOpen<cr>", desc = "Open visual diff" },
+      { "<leader>hc", "<cmd>DiffviewClose<cr>", desc = "Close visual diff" },
+      { "<leader>hf", "<cmd>DiffviewToggleFiles<cr>", desc = "Toggle diff files" },
+      { "<leader>hh", "<cmd>DiffviewFileHistory %<cr>", desc = "Current file history" },
+      { "<leader>hH", "<cmd>DiffviewFileHistory<cr>", desc = "Repo file history" },
+    },
+    opts = {
+      enhanced_diff_hl = true,
+      view = {
+        default = {
+          layout = "diff2_horizontal",
+        },
+        merge_tool = {
+          layout = "diff3_horizontal",
+        },
+        file_history = {
+          layout = "diff2_horizontal",
+        },
+      },
+      file_panel = {
+        listing_style = "tree",
+        tree_options = {
+          flatten_dirs = true,
+          folder_statuses = "only_folded",
+        },
+      },
     },
   },
   {
